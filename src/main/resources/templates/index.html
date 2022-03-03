@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gps Tracker</title>
+</head>
+<body>
+    <h1>Gps Tracker</h1>
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Device Code</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Datetime</th>
+            <th scope="col">Link</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="position : ${positions}" >
+            <td scope="row" th:text="${position.deviceCode}">deviceCode</td>
+            <td th:text="${position.latitude}">latitude</td>
+            <td th:text="${position.longitude}">longitude</td>
+            <td th:text="${#temporals.formatISO(position.datetime)}">datetime</td>
+            <td><a th:href="${position.link}" target="_blank">Google Maps</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
